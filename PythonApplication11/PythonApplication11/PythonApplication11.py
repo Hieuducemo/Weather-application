@@ -5,22 +5,18 @@ import json
 from datetime import datetime
  
 #Initialize Window
- 
 root =Tk()
 root.geometry("1200x750") #size of the window by default
 root.resizable(0,0) #to make the window size fixed
 #title of our window
 root.title("Weather Application")
  
- 
 # ----------------------Functions to fetch and display weather info
 city_value = StringVar()
- 
  
 def time_format_for_location(utc_with_tz):
     local_time = datetime.utcfromtimestamp(utc_with_tz)
     return local_time.time()
- 
  
 city_value = StringVar()
  
@@ -44,7 +40,6 @@ def showWeather():
     tfield.delete("1.0", "end")   #to clear the text field for every new output
  
 #as per API documentation, if the cod is 200, it means that weather data was successfully fetched
- 
  
     if weather_info['cod'] == 200:
         kelvin = 273 # value of kelvin
@@ -74,10 +69,6 @@ def showWeather():
  
     
     tfield.insert(INSERT, weather)   #to insert or send value in our Text Field to display output
-
-    
- 
- 
  
 #------------------------------Frontend part of code - Interface
 
@@ -102,6 +93,4 @@ weather_now.pack(pady=10)
 tfield = Text(root, width=46, height=10, bg='white')
 tfield.pack()
 
-
 root.mainloop()
-
